@@ -443,74 +443,40 @@ input.skill-range::-moz-range-thumb {
   </div>
 
   <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        const id = a.getAttribute('href').slice(1);
-        if(!id) return;
-        const el = document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'});} 
-      })
-    })
-
-    
-    // Resume download placeholder
-   
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Resume download (safe) ---
   const resumeBtn = document.getElementById('downloadResume');
-  const resumePath = 'assets/Namrutha_Gude_Resume.pdf'; // update if path differs
+  // Relative path (best for GitHub Pages): ensure file exists at assets/Namrutha_Gude_Resume.pdf
+  const resumePath = 'assets/Namrutha_Gude_Resume.pdf';
 
-  if (resumeBtn) {
-    resumeBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+  if (!resumeBtn) return;
 
-      // Try a fast HEAD to see if the file exists. If it does, trigger download.
-      // If HEAD fails (e.g. CORS/host blocks), fallback to opening the file in a new tab.
-      fetch(resumePath, { method: 'HEAD' })
-        .then(resp => {
-          if (resp.ok) {
-            const a = document.createElement('a');
-            a.href = resumePath;
-            a.download = 'Namrutha_Gude_Resume.pdf';
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-          } else {
-            // file not found: open path so user sees 404 or can manually download
-            window.open(resumePath, '_blank');
-          }
-        })
-        .catch(() => {
-          // network / CORS / other error — open in new tab as fallback
-          window.open(resumePath, '_blank');
-        });
-    });
-  }
+  resumeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
 
-  // --- Footer year (robust) ---
-  const year = new Date().getFullYear();
-  const footerYearEl = document.getElementById('footerYear');
-  if (footerYearEl) {
-    footerYearEl.textContent = `© ${year} Namrutha Gude`;
-  } else {
-    // fallback: try the existing .muted element in footer
-    const fallback = document.querySelector('#footer .muted');
-    if (fallback) fallback.textContent = `© ${year} Namrutha Gude`;
-  }
+    // Try to force a download (same-origin): create anchor with download attribute
+    try {
+      const a = document.createElement('a');
+      a.href = resumePath;
+      a.download = 'Namrutha_Gude_Resume.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
 
-  // --- (Optional) Contact form — attach listener only if element exists ---
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const status = document.getElementById('status');
-      if (status) status.textContent = 'To use the send feature, connect a backend or Formspree.';
-    });
-  }
+      // As an extra fallback, if the browser opened the file in a new tab instead of downloading,
+      // the following will not harm and ensures user sees the file.
+      setTimeout(() => {
+        // if file is not same-origin or blocked, opening it explicitly helps the user
+        // (most of the time this is no-op if download already happened)
+        // window.open(resumePath, '_blank');
+      }, 600);
+    } catch (err) {
+      // final fallback: open resume in new tab so user can download manually
+      window.open(resumePath, '_blank');
+    }
+  });
 });
+</script>
 
-
-  </script>
+  
 </body>
 </html>
