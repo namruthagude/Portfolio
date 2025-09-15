@@ -433,7 +433,7 @@ input.skill-range::-moz-range-thumb {
     </main>
 
     <footer id="footer">
-      <div class="muted">© " + new Date().getFullYear() + " Namrutha Gude</div>
+      <div class="muted" id="footerYear"></div>
       <div class="socials">
         <a class="social" href="https://github.com/namruthagude" target="_blank">GitHub</a>
         <a class="social" href="https://namrutha.itch.io/" target="_blank">Itch.io</a>
@@ -453,28 +453,64 @@ input.skill-range::-moz-range-thumb {
       })
     })
 
-    // Simple contact form stub
-    document.getElementById('contactForm').addEventListener('submit',function(e){
+    
+    // Resume download placeholder
+   
+document.addEventListener('DOMContentLoaded', () => {
+  // --- Resume download (safe) ---
+  const resumeBtn = document.getElementById('downloadResume');
+  const resumePath = 'assets/Namrutha_Gude_Resume.pdf'; // update if path differs
+
+  if (resumeBtn) {
+    resumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Try a fast HEAD to see if the file exists. If it does, trigger download.
+      // If HEAD fails (e.g. CORS/host blocks), fallback to opening the file in a new tab.
+      fetch(resumePath, { method: 'HEAD' })
+        .then(resp => {
+          if (resp.ok) {
+            const a = document.createElement('a');
+            a.href = resumePath;
+            a.download = 'Namrutha_Gude_Resume.pdf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+          } else {
+            // file not found: open path so user sees 404 or can manually download
+            window.open(resumePath, '_blank');
+          }
+        })
+        .catch(() => {
+          // network / CORS / other error — open in new tab as fallback
+          window.open(resumePath, '_blank');
+        });
+    });
+  }
+
+  // --- Footer year (robust) ---
+  const year = new Date().getFullYear();
+  const footerYearEl = document.getElementById('footerYear');
+  if (footerYearEl) {
+    footerYearEl.textContent = `© ${year} Namrutha Gude`;
+  } else {
+    // fallback: try the existing .muted element in footer
+    const fallback = document.querySelector('#footer .muted');
+    if (fallback) fallback.textContent = `© ${year} Namrutha Gude`;
+  }
+
+  // --- (Optional) Contact form — attach listener only if element exists ---
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const status = document.getElementById('status');
-      status.textContent = 'Thank you, your message has been recorded locally. To make this work, connect to Formspree or backend email service.';
-    })
+      if (status) status.textContent = 'To use the send feature, connect a backend or Formspree.';
+    });
+  }
+});
 
-    // Resume download placeholder
-    document.getElementById('downloadResume').addEventListener('click', () => {
-    const link = document.createElement('a');
-    link.href = 'assets/Namrutha_Gude_Resume.pdf';  // your real resume file
-    link.download = 'Namrutha_Gude_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  });
-    // footer year fix
-    try{
-      const f = document.getElementById('footer');
-      const year = new Date().getFullYear();
-      f.querySelector('.muted').textContent = '© ' + year + ' Namrutha Gude';
-    }catch(e){}
+
   </script>
 </body>
 </html>
