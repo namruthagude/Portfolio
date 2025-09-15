@@ -235,32 +235,200 @@
         </div>
       </section>
 
+	<section id="about">
+  <h2 style="margin:0 0 12px 0">About me</h2>
 
-      <section id="contact">
-        <h2 style="margin:18px 0 12px 0">Contact</h2>
-        <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
-          <form id="contactForm" style="background:var(--card);padding:16px;border-radius:12px">
-            <label class="muted">Your name (required)</label>
-            <input required name="name" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:white">
-            <label class="muted">Your email (required)</label>
-            <input required type="email" name="email" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:white">
-            <label class="muted">Message</label>
-            <textarea name="message" rows="4" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:white"></textarea>
-            <div style="display:flex;gap:10px;margin-top:8px">
-              <button type="submit" class="btn">Send</button>
-              <a class="pill" href="mailto:namruthagude@gmail.com">Email me</a>
-            </div>
-            <div id="status" class="muted" style="margin-top:10px"></div>
-          </form>
+  <div class="about" style="align-items:start;gap:20px">
+    <!-- Left: summary, experience, education -->
+    <div>
+      <p class="muted">
+        Unity Developer with 3 years of professional experience creating and optimizing engaging 2D &amp; 3D games
+        for mobile and PC. Expert in C#, Unity (mobile &amp; PC), multiplayer systems (Photon Fusion &amp; Pun) and Firebase
+        (Auth, Realtime DB, Storage). I enjoy fast prototyping, game jams and shipping polished gameplay.
+      </p>
 
-          <aside style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px">
-            <div style="font-weight:700">Namrutha Gude</div>
-            <div class="muted" style="margin-top:8px">Email: namruthagude@gmail.com</div>
-            <div style="margin-top:12px"><strong>Location</strong><div class="muted">India — open to EU remote roles</div></div>
-            <div style="margin-top:12px"><strong>Availability</strong><div class="muted">Available for contracts & full-time</div></div>
-          </aside>
+      <h3 style="margin-top:18px">Experience</h3>
+      <ul class="muted" style="margin-top:6px;">
+        <li><strong>Unity Developer</strong> — Unikh Games (2023 - Present)
+          <div class="muted">Led development of <em>Soccer Fan</em>, multiplayer, Firebase integration and cross-platform builds.</div>
+        </li>
+        <li style="margin-top:8px;"><strong>Unity Developer Intern</strong> — Digamend Technologies (2022 - 2023)
+          <div class="muted">ScriptableObjects, AssetBundles, Firebase features and MMFeedbacks-driven polish.</div>
+        </li>
+      </ul>
+
+      <h3 style="margin-top:18px">Education</h3>
+      <p class="muted">B.Tech, Computer Science &amp; Engineering — Bapatla Engineering College (2019–2023). Kakathiya Merit Scholar.</p>
+    </div>
+
+    <!-- Right: Skills with sliders -->
+    <aside class="skills" style="padding:16px;">
+      <h3 style="margin:0 0 12px 0">Skills</h3>
+
+      <!-- Skill row template:
+           data-value = percentage (0-100) the slider should animate to
+      -->
+      <div class="skill-row" style="margin:10px 0;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-weight:600">Unity</div>
+          <div class="skill-percent muted" data-val="95">0%</div>
         </div>
-      </section>
+        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="95" disabled>
+      </div>
+
+      <div class="skill-row" style="margin:10px 0;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-weight:600">C#</div>
+          <div class="skill-percent muted" data-val="90">0%</div>
+        </div>
+        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="90" disabled>
+      </div>
+
+      <div class="skill-row" style="margin:10px 0;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-weight:600">Multiplayer</div>
+          <div class="skill-percent muted" data-val="82">0%</div>
+        </div>
+        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="82" disabled>
+      </div>
+
+      <div class="skill-row" style="margin:10px 0;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-weight:600">Firebase</div>
+          <div class="skill-percent muted" data-val="78">0%</div>
+        </div>
+        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="78" disabled>
+      </div>
+
+      <div class="skill-row" style="margin:10px 0;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-weight:600">UI / Optimization</div>
+          <div class="skill-percent muted" data-val="84">0%</div>
+        </div>
+        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="84" disabled>
+      </div>
+
+      <div style="margin-top:12px" class="muted">Languages: C#, Python, JavaScript (basic)</div>
+    </aside>
+  </div>
+
+  <!-- JS to animate sliders when About section enters view -->
+  <script>
+    (function(){
+      const aboutSection = document.getElementById('about');
+      if(!aboutSection) return;
+
+      const ranges = Array.from(document.querySelectorAll('.skill-range'));
+      const percents = Array.from(document.querySelectorAll('.skill-percent'));
+
+      // Style sliders a bit (keeps in-page, but if you have global styles already then skip)
+      const style = document.createElement('style');
+      style.innerHTML = `
+      input.skill-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  outline: none;
+  margin-top: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Chrome / Safari / Edge */
+input.skill-range::-webkit-slider-runnable-track {
+  height: 10px;
+  background: linear-gradient(90deg, var(--accent), #06b6d4);
+  border-radius: 999px;
+}
+input.skill-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--accent);
+  cursor: default;
+  position: relative;
+  z-index: 2;
+  margin-top: -2px; /* center thumb on track */
+}
+
+/* Firefox */
+input.skill-range::-moz-range-track {
+  height: 10px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+}
+input.skill-range::-moz-range-progress {
+  height: 10px;
+  background: linear-gradient(90deg, var(--accent), #06b6d4);
+  border-radius: 999px;
+}
+input.skill-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--accent);
+  cursor: default;
+}
+      `;
+      document.head.appendChild(style);
+
+      // Animate numeric counter + range fill using interval
+      function animateRange(rangeEl, percentEl, target){
+        const duration = 700; // ms
+        const steps = 30;
+        const stepTime = duration / steps;
+        let step = 0;
+        const start = 0;
+        const diff = target - start;
+        const id = setInterval(()=>{
+          step++;
+          const val = Math.round(start + (diff * (step/steps)));
+          rangeEl.value = val;
+          percentEl.textContent = val + '%';
+          if(step >= steps) clearInterval(id);
+        }, stepTime);
+      }
+
+      // IntersectionObserver to trigger once
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            ranges.forEach((r, i)=>{
+              const to = parseInt(r.getAttribute('data-value') || '80',10);
+              const p = percents[i];
+              // only animate if still 0
+              if(parseInt(r.value,10) === 0){
+                animateRange(r, p, to);
+              }
+            });
+            io.disconnect();
+          }
+        });
+      }, {threshold: 0.25});
+
+      io.observe(aboutSection);
+    })();
+  </script>
+</section>
+
+	 <section id="contact">
+		<h2 style="margin:18px 0 12px 0">Contact</h2>
+		<div style="background:var(--card);padding:20px;border-radius:12px">
+		<div style="font-weight:700;font-size:18px">Namrutha Gude</div>
+		<div class="muted" style="margin-top:8px">Email: namruthagude@gmail.com</div>
+			<div class="socials" style="margin-top:16px">
+				<a class="social" href="https://github.com/namruthagude" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+				<a class="social" href="https://namrutha.itch.io/" target="_blank"><i class="fas fa-gamepad"></i> Itch.io</a>
+				<a class="social" href="https://www.linkedin.com/in/namrutha-gude/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+			</div>
+		</div>
+	</section>
 
     </main>
 
@@ -293,15 +461,14 @@
     })
 
     // Resume download placeholder
-    document.getElementById('downloadResume').addEventListener('click',()=>{
-      const link = document.createElement('a');
-      link.href = 'assets/Namrutha_Gude_Resume.pdf'; // replace with real path
-      link.download = 'Namrutha_Gude_Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    })
-
+    document.getElementById('downloadResume').addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.href = 'assets/Namrutha_Gude_Resume.pdf';  // your real resume file
+    link.download = 'Namrutha_Gude_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  });
     // footer year fix
     try{
       const f = document.getElementById('footer');
