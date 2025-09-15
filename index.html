@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Namrutha Gude — Portfolio</title>
+  <meta name="description" content="Namrutha Gude — Unity Game Developer. Projects, skills and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7c3aed; --glass: rgba(255,255,255,0.04);
+      --max-w:1100px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#061124 120%);font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+    .wrap{max-width:var(--max-w);margin:36px auto;padding:28px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:grid;place-items:center;color:white;font-weight:800;font-size:18px}
+    nav{display:flex;gap:10px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{background:var(--glass);color:whitesmoke}
+    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;cursor:pointer;border:none}
+    main{margin-top:28px}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+    .intro h1{font-size:36px;margin:0 0 8px 0}
+    .intro p{color:var(--muted);margin:0 0 18px}
+    .cta{display:flex;gap:12px}
+    .cards{display:flex;gap:12px;margin-top:14px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;min-width:120px}
+    .card h3{margin:0;font-size:18px}
+    .card p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    /* Projects */
+    section{margin-top:44px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .proj{background:var(--card);padding:18px;border-radius:14px;position:relative;overflow:hidden;min-height:400px;display:flex;flex-direction:column;justify-content:space-between}
+    .proj img{width:100%;height:200px;object-fit:cover;border-radius:8px}
+    .proj h4{margin:10px 0 6px}
+    .proj p{margin:0;color:var(--muted);font-size:14px}
+    .proj .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
+
+    /* About + skills */
+    .about{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .skills{background:var(--card);padding:12px;border-radius:12px}
+    .skill{display:flex;justify-content:space-between;margin:8px 0}
+    .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4)}
+
+    /* Contact */
+    footer{margin-top:46px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .socials{display:flex;gap:8px}
+    .social{padding:8px;border-radius:8px;background:var(--glass);color:var(--muted);text-decoration:none}
+
+    /* responsiveness */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+    }
+
+    /* small utility */
+    .muted{color:var(--muted)}
+    .center{display:flex;align-items:center;justify-content:center}
+    .pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);cursor:pointer;text-decoration:none;color:white}
+
+    /* subtle animations */
+    .logo{transform:translateY(-2px);transition:transform .28s ease}
+    .logo:hover{transform:translateY(-6px) rotate(-4deg)}
+    a,button{transition:all .18s ease}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">NG</div>
+        <div>
+          <div style="font-weight:800">Namrutha Gude</div>
+          <div class="muted" style="font-size:13px">Unity Developer • Game Systems • Multiplayer</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" id="downloadResume">Resume</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero section unchanged -->
+      <section class="hero" id="home">
+        <div class="intro">
+          <h1>Hi — I’m Namrutha. I make games that people play again and again.</h1>
+          <p>I develop mechanics, multiplayer systems and polished UI for mobile & PC — with Unity, C# and Firebase. I build prototypes fast and ship stable systems.</p>
+          <div class="cta">
+            <a class="btn" href="#projects">See my work</a>
+          </div>
+
+          <div class="cards" aria-hidden="false">
+            <div class="card">
+              <h3>3 yrs</h3>
+              <p>Game dev experience</p>
+            </div>
+            <div class="card">
+              <h3>Unikh Games</h3>
+              <p>Current / recent</p>
+            </div>
+            <div class="card">
+              <h3>Available</h3>
+              <p>Open to remote roles</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     <section id="projects">
+        <h2 style="margin:0 0 12px 0">Projects</h2>
+       
+
+        <div class="grid">
+
+          <!-- Soccer Fan -->
+          <article class="proj">
+            <img src="assets/soccer-fan.png.webp" alt="Soccer Fan screenshot">
+            <h4>Soccer Fan — Multiplayer Football</h4>
+            <p class="muted">Published multiplayer soccer game on Google Play. Real-time 1v1 matches with Photon Fusion & Pun, optimized for Android and WebGL.</p>
+            <div style="margin-top:10px;color:var(--muted)">
+              <strong>Key features:</strong>
+              <ul class="muted">
+                <li>Dribbling, passing and shooting mechanics</li>
+                <li>Client-side prediction & reconciliation</li>
+                <li>Firebase authentication and analytics</li>
+              </ul>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <a class="btn" href="https://play.google.com/store/apps/details?id=com.Divyamu.SoccerFan&hl=en_IN" target="_blank">Play</a>
+            </div>
+          </article>
+
+          <!-- BINGO -->
+          <article class="proj">
+            <img src="assets/bingo.png.png" alt="BINGO screenshot">
+            <h4>BINGO — Multiplayer & AI Numbers Game</h4>
+            <p class="muted">A 5x5 grid strategy game with multiplayer and AI opponent logic. Clean UI and accessible design.</p>
+            <div style="margin-top:10px;color:var(--muted)">
+              <strong>Key features:</strong>
+              <ul class="muted">
+                <li>Multiplayer matchmaking</li>
+                <li>AI opponent with difficulty scaling</li>
+                <li>BINGO tracking system with responsive UI</li>
+              </ul>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <a class="pill" href="https://github.com/namruthagude" target="_blank">View Code</a>
+              <a class="btn" href="https://namrutha.itch.io/bingo" target="_blank">Play</a>
+            </div>
+          </article>
+
+          <!-- Burnt Fortune -->
+          <article class="proj">
+            <img src="assets/burnt-fortune.png.png" alt="Burnt Fortune screenshot">
+            <h4>Burnt Fortune — Brackeys Jam (72 hrs)</h4>
+            <p class="muted">Adventure-survival game created in 72 hours for Brackeys Jam. Theme: <em>Risk it for the Biscuit</em>.</p>
+            <div style="margin-top:10px;color:var(--muted)">
+              <strong>Key features:</strong>
+              <ul class="muted">
+                <li>Wave-based spawning and survival loop</li>
+                <li>Power-ups: Move Fast and Freeze Time</li>
+                <li>Progression mechanics to sustain engagement</li>
+              </ul>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <a class="pill" href="https://github.com/namruthagude" target="_blank">View Code</a>
+              <a class="btn" href="https://namrutha.itch.io/burnt-fortune" target="_blank">Play</a>
+            </div>
+          </article>
+
+          <!-- Glitch of the Dead -->
+          <article class="proj">
+            <img src="assets/glitch-of-the-dead.png.png" alt="Glitch of the Dead screenshot">
+            <h4>Glitch of the Dead — Patch Notes Jam (72 hrs)</h4>
+            <p class="muted">Endless zombie survival game made in 72 hours for Patch Notes Jam. Theme: <em>Error is the feature</em>.</p>
+            <div style="margin-top:10px;color:var(--muted)">
+              <strong>Key features:</strong>
+              <ul class="muted">
+                <li>Random zombie spawning and speed scaling</li>
+                <li>Leaderboards to drive competition</li>
+                <li>Glitch-style UI and visuals</li>
+              </ul>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <a class="pill" href="https://github.com/namruthagude" target="_blank">View Code</a>
+              <a class="btn" href="https://namrutha.itch.io/glitch-of-the-dead" target="_blank">Play</a>
+            </div>
+          </article>
+
+          <!-- Dinoo Mover -->
+          <article class="proj">
+            <img src="assets/dino-mover.png.png" alt="Dinoo Mover screenshot">
+            <h4>Dinoo Mover — 2D Endless Runner</h4>
+            <p class="muted">Casual endless climbing/runner game. Colorful visuals inspired by the Chrome Dino.</p>
+            <div style="margin-top:10px;color:var(--muted)">
+              <strong>Key features:</strong>
+              <ul class="muted">
+                <li>Touch controls for mobile play</li>
+                <li>Obstacle avoidance and collectible system</li>
+                <li>Progressive speed increase for challenge</li>
+              </ul>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <a class="pill" href="https://github.com/namruthagude" target="_blank">View Code</a>
+              <a class="btn" href="https://namrutha.itch.io/dinoo" target="_blank">Play</a>
+            </div>
+          </article>
+
+        </div>
+
+        <h2 style="margin:22px 0 8px 0">Progress</h2>
+        <div style="background:var(--card);padding:12px;border-radius:12px">
+          <ul class="muted">
+            <li><strong>PONG</strong>: Multiplayer pong game using Netcode for GameObjects</li>
+            <li><strong>Chess</strong>: AI chess game with best-move detection and multiplayer plans</li>
+            <li><strong>Fire Squad</strong>: 3D FPS with single and multiplayer support + Firebase Auth</li>
+            <li><strong>Brick Breaker</strong>: Prototype 2D brick breaker with powerups</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section id="contact">
+        <h2 style="margin:18px 0 12px 0">Contact</h2>
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+          <form id="contactForm" style="background:var(--card);padding:16px;border-radius:12px">
+            <label class="muted">Your name (required)</label>
+            <input required name="name" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:white">
+            <label class="muted">Your email (required)</label>
+            <input required type="email" name="email" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:white">
+            <label class="muted">Message</label>
+            <textarea name="message" rows="4" style="width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:white"></textarea>
+            <div style="display:flex;gap:10px;margin-top:8px">
+              <button type="submit" class="btn">Send</button>
+              <a class="pill" href="mailto:namruthagude@gmail.com">Email me</a>
+            </div>
+            <div id="status" class="muted" style="margin-top:10px"></div>
+          </form>
+
+          <aside style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px">
+            <div style="font-weight:700">Namrutha Gude</div>
+            <div class="muted" style="margin-top:8px">Email: namruthagude@gmail.com</div>
+            <div style="margin-top:12px"><strong>Location</strong><div class="muted">India — open to EU remote roles</div></div>
+            <div style="margin-top:12px"><strong>Availability</strong><div class="muted">Available for contracts & full-time</div></div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer id="footer">
+      <div class="muted">© " + new Date().getFullYear() + " Namrutha Gude</div>
+      <div class="socials">
+        <a class="social" href="https://github.com/namruthagude" target="_blank">GitHub</a>
+        <a class="social" href="https://namrutha.itch.io/" target="_blank">Itch.io</a>
+        <a class="social" href="https://www.linkedin.com/in/namrutha-gude/" target="_blank">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id = a.getAttribute('href').slice(1);
+        if(!id) return;
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'});} 
+      })
+    })
+
+    // Simple contact form stub
+    document.getElementById('contactForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      const status = document.getElementById('status');
+      status.textContent = 'Thank you, your message has been recorded locally. To make this work, connect to Formspree or backend email service.';
+    })
+
+    // Resume download placeholder
+    document.getElementById('downloadResume').addEventListener('click',()=>{
+      const link = document.createElement('a');
+      link.href = 'assets/Namrutha_Gude_Resume.pdf'; // replace with real path
+      link.download = 'Namrutha_Gude_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    })
+
+    // footer year fix
+    try{
+      const f = document.getElementById('footer');
+      const year = new Date().getFullYear();
+      f.querySelector('.muted').textContent = '© ' + year + ' Namrutha Gude';
+    }catch(e){}
+  </script>
+</body>
+</html>
