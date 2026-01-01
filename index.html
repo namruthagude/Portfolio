@@ -3,525 +3,295 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Namrutha Gude — Portfolio</title>
-  <meta name="description" content="Namrutha Gude — Unity Game Developer. Projects, skills and contact." />
+  <title>Namrutha Gude — Unity Developer</title>
+  <meta name="description" content="Namrutha Gude — Unity Developer based in Malta. Mobile & multiplayer games using Unity, C#, Photon and Firebase." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7c3aed; --glass: rgba(255,255,255,0.04);
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
       --max-w:1100px;
       color-scheme: dark;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#061124 120%);font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
-    .wrap{max-width:var(--max-w);margin:36px auto;padding:28px;}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:grid;place-items:center;color:white;font-weight:800;font-size:18px}
-    nav{display:flex;gap:10px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
-    nav a:hover{background:var(--glass);color:whitesmoke}
-    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;cursor:pointer;border:none}
-    main{margin-top:28px}
+    html,body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#061124 120%);
+      font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+      color:#fff;
+    }
+    .wrap{max-width:var(--max-w);margin:36px auto;padding:28px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:52px;height:52px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#4f46e5);
+      display:grid;place-items:center;font-weight:800;
+    }
+    nav{display:flex;gap:10px}
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+    }
+    nav a:hover{background:var(--glass);color:#fff}
+    .btn{
+      background:var(--accent);
+      color:white;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+    }
 
     /* hero */
-    .hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
-    .intro h1{font-size:36px;margin:0 0 8px 0}
-    .intro p{color:var(--muted);margin:0 0 18px}
-    .cta{display:flex;gap:12px}
-    .cards{display:flex;gap:12px;margin-top:14px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;min-width:120px}
-    .card h3{margin:0;font-size:18px}
+    .hero{margin-top:40px}
+    .hero h1{font-size:38px;margin:0 0 12px}
+    .hero p{color:var(--muted);max-width:720px}
+    .cta{margin-top:20px;display:flex;gap:12px}
+    .cards{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));
+      padding:14px;
+      border-radius:12px;
+      min-width:150px;
+    }
+    .card h3{margin:0}
     .card p{margin:6px 0 0;color:var(--muted);font-size:14px}
 
-    /* Projects */
-    section{margin-top:44px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
-    .proj{background:var(--card);padding:18px;border-radius:14px;position:relative;overflow:hidden;min-height:400px;display:flex;flex-direction:column;justify-content:space-between}
-    .proj img{width:100%;height:200px;object-fit:cover;border-radius:8px}
-    .proj h4{margin:10px 0 6px}
-    .proj p{margin:0;color:var(--muted);font-size:14px}
-    .proj .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
+    /* sections */
+    section{margin-top:60px}
+    h2{margin:0 0 12px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:22px;
+    }
+    .proj{
+      background:var(--card);
+      padding:18px;
+      border-radius:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .proj img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:10px;
+    }
+    .proj p{color:var(--muted);font-size:14px}
+    ul{padding-left:18px}
+    li{margin:6px 0}
 
-    /* About + skills */
-    .about{display:grid;grid-template-columns:1fr 320px;gap:20px}
-    .skills{background:var(--card);padding:12px;border-radius:12px}
-    .skill{display:flex;justify-content:space-between;margin:8px 0}
-    .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
-    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#06b6d4)}
-
-    /* Contact */
-    footer{margin-top:46px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-    .socials{display:flex;gap:8px}
-    .social{padding:8px;border-radius:8px;background:var(--glass);color:var(--muted);text-decoration:none}
-
-    /* responsiveness */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start;gap:12px}
+    /* about */
+    .about{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:24px;
+    }
+    .skills{
+      background:var(--card);
+      padding:18px;
+      border-radius:14px;
+    }
+    .skill{margin-bottom:12px}
+    .bar{
+      height:8px;border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      overflow:hidden;
+    }
+    .bar i{
+      display:block;height:100%;
+      background:linear-gradient(90deg,var(--accent),#06b6d4);
     }
 
-    /* small utility */
-    .muted{color:var(--muted)}
-    .center{display:flex;align-items:center;justify-content:center}
-    .pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);cursor:pointer;text-decoration:none;color:white}
+    /* contact */
+    footer{margin-top:60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .socials{display:flex;gap:10px}
+    .social{
+      padding:8px 12px;
+      border-radius:8px;
+      background:var(--glass);
+      text-decoration:none;
+      color:var(--muted);
+    }
 
-    /* subtle animations */
-    .logo{transform:translateY(-2px);transition:transform .28s ease}
-    .logo:hover{transform:translateY(-6px) rotate(-4deg)}
-    a,button{transition:all .18s ease}
-
+    @media(max-width:900px){
+      .about{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">NG</div>
-        <div>
-          <div style="font-weight:800">Namrutha Gude</div>
-          <div class="muted" style="font-size:13px">Unity Developer • Game Systems • Multiplayer</div>
-        </div>
-      </div>
-      <nav aria-label="Main navigation">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" id="downloadResume">Resume</a>
-      </nav>
-    </header>
+<div class="wrap">
 
-    <main>
-      <!-- Hero section unchanged -->
-      <section class="hero" id="home">
-        <div class="intro">
-          <h1>Hi — I’m Namrutha. I make games that people play again and again.</h1>
-          <p>I develop mechanics, multiplayer systems and polished UI for mobile & PC — with Unity, C# and Firebase. I build prototypes fast and ship stable systems.</p>
-          <div class="cta">
-            <a class="btn" href="#projects">See my work</a>
-          </div>
-
-          <div class="cards" aria-hidden="false">
-            <div class="card">
-              <h3>3.5 yrs</h3>
-              <p>Game dev experience</p>
-            </div>
-            <div class="card">
-              <h3>Freelancer</h3>
-              <p>Current </p>
-            </div>
-            <div class="card">
-              <h3>Available</h3>
-              <p>Open to freelance, part-time or full time roles</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-     <section id="projects">
-        <h2 style="margin:0 0 12px 0">Projects</h2>
-       
-
-        <div class="grid">
-
-          <!-- Soccer Fan -->
-          <article class="proj">
-		  
-            <img src="assets/soccer-fan.png.webp" alt="Soccer Fan screenshot">
-            <h4>Soccer Fan — Multiplayer Football</h4>
-            <p class="muted">Published multiplayer soccer game on Google Play. Real-time 1v1 matches with Photon Fusion & Pun, optimized for Android and WebGL.</p>
-            <div style="margin-top:10px;color:var(--muted)">
-              <strong>Key features:</strong>
-              <ul class="muted">
-                <li>Dribbling, passing and shooting mechanics</li>
-                <li>Client-side prediction & reconciliation</li>
-                <li>Firebase authentication and analytics</li>
-              </ul>
-            </div>
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <a class="btn" href="https://play.google.com/store/apps/details?id=com.Divyamu.SoccerFan&hl=en_IN" target="_blank">Play</a>
-            </div>
-          </article>
-		  
-		  <!-- Laser tanks -->
-		   <article class="proj">
-			  <img src="assets/LaserTank.jpg" alt="Laser Tanks screenshot">
-			  <h4>Laser Tanks — Multiplayer Battle Tanks</h4>
-			  <p class="muted">
-				Freelance project completed in just one week. Upgraded an existing single-player tank battle game into a real-time multiplayer experience using Photon PUN and Unity networking systems.
-			  </p>
-			  <div style="margin-top:10px;color:var(--muted)">
-				<strong>Key features:</strong>
-				<ul class="muted">
-				  <li>Converted single-player to real-time multiplayer</li>
-				  <li>Implemented matchmaking and lobby system</li>
-				  <li>Synced tank movement, shooting, and health across players</li>
-				  <li>Optimized gameplay for smooth performance and low latency</li>
-				</ul>
-			  </div>
-			  <div style="display:flex;gap:10px;margin-top:12px">
-				<a class="btn" href="https://steamcommunity.com/app/2309830" target="_blank">View on Steam</a>
-			  </div>
-			</article>
-		  
-			<!-- Coloring Book -->
-			<article class="proj">
-			  <img src="assets/coloring-book.jpg" alt="Coloring Book screenshot">
-			  <h4>Coloring Book — Creative Drawing Game</h4>
-			  <p class="muted">
-				Interactive coloring game developed for web and mobile platforms, featuring intuitive touch controls and smooth drawing tools. Designed for both kids and casual players with a relaxing user experience.
-			  </p>
-			  <div style="margin-top:10px;color:var(--muted)">
-				<strong>Key features:</strong>
-				<ul class="muted">
-				  <li>Responsive drawing and zoom mechanics</li>
-				  <li>Custom color palette and brush tools</li>
-				  <li>Multiple coloring pages and themes</li>
-				  <li>Optimized for mobile browsers and Yandex Games</li>
-				</ul>
-			  </div>
-			  <div style="display:flex;gap:10px;margin-top:12px">
-				<a class="btn" href="https://yandex.ru/games/app/472780?draft=true&lang=ru" target="_blank">Play on Yandex Games</a>
-			  </div>
-			</article>
-		  
-			
-          <!-- BINGO -->
-          <article class="proj">
-            <img src="assets/bingo.png.png" alt="BINGO screenshot">
-            <h4>BINGO — Multiplayer & AI Numbers Game</h4>
-            <p class="muted">A 5x5 grid strategy game with multiplayer and AI opponent logic. Clean UI and accessible design.</p>
-            <div style="margin-top:10px;color:var(--muted)">
-              <strong>Key features:</strong>
-              <ul class="muted">
-                <li>Multiplayer matchmaking</li>
-                <li>AI opponent with difficulty scaling</li>
-                <li>BINGO tracking system with responsive UI</li>
-              </ul>
-            </div>
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <a class="pill" href="https://github.com/namruthagude" target="_blank">View Code</a>
-              <a class="btn" href="https://namrutha.itch.io/bingo" target="_blank">Play</a>
-            </div>
-          </article>
-
-          <!-- Burnt Fortune -->
-          <article class="proj">
-            <img src="assets/burnt-fortune.png.png" alt="Burnt Fortune screenshot">
-            <h4>Burnt Fortune — Brackeys Jam (72 hrs)</h4>
-            <p class="muted">Adventure-survival game created in 72 hours for Brackeys Jam. Theme: <em>Risk it for the Biscuit</em>.</p>
-            <div style="margin-top:10px;color:var(--muted)">
-              <strong>Key features:</strong>
-              <ul class="muted">
-                <li>Wave-based spawning and survival loop</li>
-                <li>Power-ups: Move Fast and Freeze Time</li>
-                <li>Progression mechanics to sustain engagement</li>
-              </ul>
-            </div>
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <a class="pill" href="https://github.com/namruthagude" target="_blank">View Code</a>
-              <a class="btn" href="https://namrutha.itch.io/burnt-fortune" target="_blank">Play</a>
-            </div>
-          </article>
-
-          <!-- Glitch of the Dead -->
-          <article class="proj">
-            <img src="assets/glitch-of-the-dead.png.png" alt="Glitch of the Dead screenshot">
-            <h4>Glitch of the Dead — Patch Notes Jam (72 hrs)</h4>
-            <p class="muted">Endless zombie survival game made in 72 hours for Patch Notes Jam. Theme: <em>Error is the feature</em>.</p>
-            <div style="margin-top:10px;color:var(--muted)">
-              <strong>Key features:</strong>
-              <ul class="muted">
-                <li>Random zombie spawning and speed scaling</li>
-                <li>Leaderboards to drive competition</li>
-                <li>Glitch-style UI and visuals</li>
-              </ul>
-            </div>
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <a class="pill" href="https://github.com/namruthagude" target="_blank">View Code</a>
-              <a class="btn" href="https://namrutha.itch.io/glitch-of-the-dead" target="_blank">Play</a>
-            </div>
-          </article>
-
-          <!-- Dinoo Mover -->
-          <article class="proj">
-            <img src="assets/dino-mover.png.png" alt="Dinoo Mover screenshot">
-            <h4>Dinoo Mover — 2D Endless Runner</h4>
-            <p class="muted">Casual endless climbing/runner game. Colorful visuals inspired by the Chrome Dino.</p>
-            <div style="margin-top:10px;color:var(--muted)">
-              <strong>Key features:</strong>
-              <ul class="muted">
-                <li>Touch controls for mobile play</li>
-                <li>Obstacle avoidance and collectible system</li>
-                <li>Progressive speed increase for challenge</li>
-              </ul>
-            </div>
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <a class="pill" href="https://github.com/namruthagude" target="_blank">View Code</a>
-              <a class="btn" href="https://namrutha.itch.io/dinoo" target="_blank">Play</a>
-            </div>
-          </article>
-
-        </div>
-
-        <h2 style="margin:22px 0 8px 0">Progress</h2>
-        <div style="background:var(--card);padding:12px;border-radius:12px">
-          <ul class="muted">
-            <li><strong>PONG</strong>: Multiplayer pong game using Netcode for GameObjects</li>
-            <li><strong>Chess</strong>: AI chess game with best-move detection and multiplayer plans</li>
-            <li><strong>Fire Squad</strong>: 3D FPS with single and multiplayer support + Firebase Auth</li>
-            <li><strong>Brick Breaker</strong>: Prototype 2D brick breaker with powerups</li>
-          </ul>
-        </div>
-      </section>
-
-	<section id="about">
-  <h2 style="margin:0 0 12px 0">About me</h2>
-
-  <div class="about" style="align-items:start;gap:20px">
-    <!-- Left: summary, experience, education -->
+<header>
+  <div class="brand">
+    <div class="logo">NG</div>
     <div>
-        <p class="muted">
-            Unity Developer with 3.5 years of professional experience creating and optimizing engaging 2D &amp; 3D games
-            for mobile and PC. Expert in C#, Unity (mobile &amp; PC), multiplayer systems (Photon Fusion &amp; Pun) and Firebase
-            (Auth, Realtime DB, Storage). I enjoy fast prototyping, game jams and shipping polished gameplay.
-            I also provide one-to-one part-time mentoring in Unity, helping students build and release complete games.
-        </p>
-
-      <h3 style="margin-top:18px">Experience</h3>
-      <ul class="muted" style="margin-top:6px;">
-        <li><strong>Unity Developer</strong> — Unikh Games (2023 - Present)
-          <div class="muted">Led development of <em>Soccer Fan</em>, multiplayer, Firebase integration and cross-platform builds.</div>
-        </li>
-        <li style="margin-top:8px;"><strong>Unity Developer Intern</strong> — Digamend Technologies (2022 - 2023)
-          <div class="muted">ScriptableObjects, AssetBundles, Firebase features and MMFeedbacks-driven polish.</div>
-        </li>
-      </ul>
-
-      <h3 style="margin-top:18px">Education</h3>
-      <p class="muted">B.Tech, Computer Science &amp; Engineering — Bapatla Engineering College (2019–2023). Kakathiya Merit Scholar.</p>
+      <strong>Namrutha Gude</strong>
+      <div class="muted" style="font-size:13px">
+        Unity Developer · Mobile & Multiplayer
+      </div>
     </div>
-
-    <!-- Right: Skills with sliders -->
-    <aside class="skills" style="padding:16px;">
-      <h3 style="margin:0 0 12px 0">Skills</h3>
-
-      <!-- Skill row template:
-           data-value = percentage (0-100) the slider should animate to
-      -->
-      <div class="skill-row" style="margin:10px 0;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div style="font-weight:600">Unity</div>
-          <div class="skill-percent muted" data-val="95">0%</div>
-        </div>
-        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="95" disabled>
-      </div>
-
-      <div class="skill-row" style="margin:10px 0;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div style="font-weight:600">C#</div>
-          <div class="skill-percent muted" data-val="90">0%</div>
-        </div>
-        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="90" disabled>
-      </div>
-
-      <div class="skill-row" style="margin:10px 0;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div style="font-weight:600">Multiplayer</div>
-          <div class="skill-percent muted" data-val="82">0%</div>
-        </div>
-        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="82" disabled>
-      </div>
-
-      <div class="skill-row" style="margin:10px 0;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div style="font-weight:600">Firebase</div>
-          <div class="skill-percent muted" data-val="78">0%</div>
-        </div>
-        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="78" disabled>
-      </div>
-
-      <div class="skill-row" style="margin:10px 0;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div style="font-weight:600">UI / Optimization</div>
-          <div class="skill-percent muted" data-val="84">0%</div>
-        </div>
-        <input class="skill-range" type="range" min="0" max="100" value="0" data-value="84" disabled>
-      </div>
-
-      <div style="margin-top:12px" class="muted">Languages: C#, Python, JavaScript (basic)</div>
-    </aside>
   </div>
 
-  <!-- JS to animate sliders when About section enters view -->
-  <script>
-    (function(){
-      const aboutSection = document.getElementById('about');
-      if(!aboutSection) return;
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a class="btn" href="assets/Namrutha_Gude_Resume.pdf" target="_blank">Resume</a>
+  </nav>
+</header>
 
-      const ranges = Array.from(document.querySelectorAll('.skill-range'));
-      const percents = Array.from(document.querySelectorAll('.skill-percent'));
+<!-- HERO -->
+<section class="hero">
+  <h1>Unity Developer specializing in Mobile & Multiplayer Games</h1>
 
-      // Style sliders a bit (keeps in-page, but if you have global styles already then skip)
-      const style = document.createElement('style');
-      style.innerHTML = `
-      input.skill-range {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  outline: none;
-  margin-top: 8px;
-  overflow: hidden;
-  position: relative;
-}
+  <p>
+    3.5+ years of professional experience building and shipping
+    <strong>2D & 3D games</strong> using <strong>Unity and C#</strong>.
+    Strong focus on <strong>Photon multiplayer systems</strong>,
+    <strong>Firebase backends</strong>, and performance optimization.
+    <br><br>
+    <strong>Based in Malta</strong> — available for on-site, hybrid, or remote roles.
+  </p>
 
-/* Chrome / Safari / Edge */
-input.skill-range::-webkit-slider-runnable-track {
-  height: 10px;
-  background: linear-gradient(90deg, var(--accent), #06b6d4);
-  border-radius: 999px;
-}
-input.skill-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid var(--accent);
-  cursor: default;
-  position: relative;
-  z-index: 2;
-  margin-top: -2px; /* center thumb on track */
-}
+  <div class="cta">
+    <a class="btn" href="#projects">View Selected Projects</a>
+    <a class="social" href="#contact">Contact Me</a>
+  </div>
 
-/* Firefox */
-input.skill-range::-moz-range-track {
-  height: 10px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 999px;
-}
-input.skill-range::-moz-range-progress {
-  height: 10px;
-  background: linear-gradient(90deg, var(--accent), #06b6d4);
-  border-radius: 999px;
-}
-input.skill-range::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid var(--accent);
-  cursor: default;
-}
-      `;
-      document.head.appendChild(style);
-
-      // Animate numeric counter + range fill using interval
-      function animateRange(rangeEl, percentEl, target){
-        const duration = 700; // ms
-        const steps = 30;
-        const stepTime = duration / steps;
-        let step = 0;
-        const start = 0;
-        const diff = target - start;
-        const id = setInterval(()=>{
-          step++;
-          const val = Math.round(start + (diff * (step/steps)));
-          rangeEl.value = val;
-          percentEl.textContent = val + '%';
-          if(step >= steps) clearInterval(id);
-        }, stepTime);
-      }
-
-      // IntersectionObserver to trigger once
-      const io = new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){
-            ranges.forEach((r, i)=>{
-              const to = parseInt(r.getAttribute('data-value') || '80',10);
-              const p = percents[i];
-              // only animate if still 0
-              if(parseInt(r.value,10) === 0){
-                animateRange(r, p, to);
-              }
-            });
-            io.disconnect();
-          }
-        });
-      }, {threshold: 0.25});
-
-      io.observe(aboutSection);
-    })();
-  </script>
+  <div class="cards">
+    <div class="card"><h3>3.5+ yrs</h3><p>Unity experience</p></div>
+    <div class="card"><h3>Multiplayer</h3><p>Photon Fusion & PUN</p></div>
+    <div class="card"><h3>Shipped</h3><p>Mobile · WebGL · Steam</p></div>
+  </div>
 </section>
 
-	 <section id="contact">
-		<h2 style="margin:18px 0 12px 0">Contact</h2>
-		<div style="background:var(--card);padding:20px;border-radius:12px">
-		<div style="font-weight:700;font-size:18px">Namrutha Gude</div>
-		<div class="muted" style="margin-top:8px">Email: namruthagude@gmail.com</div>
-			<div class="socials" style="margin-top:16px">
-				<a class="social" href="https://github.com/namruthagude" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-				<a class="social" href="https://namrutha.itch.io/" target="_blank"><i class="fas fa-gamepad"></i> Itch.io</a>
-				<a class="social" href="https://www.linkedin.com/in/namrutha-gude/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-			</div>
-		</div>
-	</section>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Selected Projects</h2>
+  <p class="muted">Projects that best represent my professional Unity experience.</p>
 
-    </main>
+  <div class="grid">
 
-    <footer id="footer">
-      <div class="muted" id="footerYear"></div>
-      <div class="socials">
-        <a class="social" href="https://github.com/namruthagude" target="_blank">GitHub</a>
-        <a class="social" href="https://namrutha.itch.io/" target="_blank">Itch.io</a>
-        <a class="social" href="https://www.linkedin.com/in/namrutha-gude/" target="_blank">LinkedIn</a>
-      </div>
-    </footer>
+    <!-- Soccer Fan -->
+    <article class="proj">
+      <img src="assets/soccer-fan.png.webp" alt="Soccer Fan">
+      <h4>Soccer Fan — Multiplayer Football Game</h4>
+      <p>
+        Published multiplayer football game. Led core gameplay systems,
+        real-time networking using Photon, and Firebase integration.
+        Optimized for Android and WebGL.
+      </p>
+      <strong>My contributions:</strong>
+      <ul>
+        <li>Real-time multiplayer gameplay & synchronization</li>
+        <li>Client-side prediction and matchmaking</li>
+        <li>Firebase authentication and analytics</li>
+      </ul>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.Divyamu.SoccerFan&hl=en_IN" target="_blank">Play on Google Play</a>
+    </article>
+
+    <!-- Laser Tanks -->
+    <article class="proj">
+      <img src="assets/LaserTank.jpg" alt="Laser Tanks">
+      <h4>Laser Tanks — Multiplayer Battle Game (Freelance)</h4>
+      <p>
+        Freelance project completed in one week.
+        Converted a full single-player PC game into
+        a real-time multiplayer experience.
+      </p>
+      <strong>My contributions:</strong>
+      <ul>
+        <li>Converted architecture to multiplayer</li>
+        <li>Implemented lobbies, matchmaking, and sync</li>
+        <li>Optimized network performance and latency</li>
+      </ul>
+      <a class="btn" href="https://steamcommunity.com/app/2309830" target="_blank">View on Steam</a>
+    </article>
+
   </div>
 
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const resumeBtn = document.getElementById('downloadResume');
-  // Relative path (best for GitHub Pages): ensure file exists at assets/Namrutha_Gude_Resume.pdf
-  const resumePath = 'assets/Namrutha_Gude_Resume.pdf';
+  <h3 style="margin-top:40px">Other Projects</h3>
+  <p class="muted">Game jams, prototypes, and smaller shipped titles.</p>
 
-  if (!resumeBtn) return;
+  <ul class="muted">
+    <li><strong>BINGO</strong> — Multiplayer & AI numbers game (itch.io)</li>
+    <li><strong>Coloring Book</strong> — Web & mobile casual game (Yandex Games)</li>
+    <li><strong>Burnt Fortune</strong> — Brackeys Game Jam (72 hrs)</li>
+    <li><strong>Glitch of the Dead</strong> — Patch Notes Jam (72 hrs)</li>
+  </ul>
+</section>
 
-  resumeBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
 
-    // Try to force a download (same-origin): create anchor with download attribute
-    try {
-      const a = document.createElement('a');
-      a.href = resumePath;
-      a.download = 'Namrutha_Gude_Resume.pdf';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+  <div class="about">
+    <div>
+      <p class="muted">
+        Unity Developer with 3.5 years of professional experience creating
+        and optimizing 2D & 3D games for mobile and PC.
+        Strong background in multiplayer systems, Firebase integration,
+        and performance-focused development.
+        <br><br>
+        I also provide one-to-one Unity mentoring, helping students
+        build and release complete games.
+      </p>
 
-      // As an extra fallback, if the browser opened the file in a new tab instead of downloading,
-      // the following will not harm and ensures user sees the file.
-      setTimeout(() => {
-        // if file is not same-origin or blocked, opening it explicitly helps the user
-        // (most of the time this is no-op if download already happened)
-        // window.open(resumePath, '_blank');
-      }, 600);
-    } catch (err) {
-      // final fallback: open resume in new tab so user can download manually
-      window.open(resumePath, '_blank');
-    }
-  });
-});
-</script>
+      <h3>Education</h3>
+      <p class="muted">
+        B.Tech in Computer Science & Engineering — Bapatla Engineering College
+        (2019–2023). Kakathiya Merit Scholar.
+      </p>
+    </div>
 
-  
+    <aside class="skills">
+      <h3>Core Skills</h3>
+
+      <div class="skill">Unity<div class="bar"><i style="width:95%"></i></div></div>
+      <div class="skill">C#<div class="bar"><i style="width:90%"></i></div></div>
+      <div class="skill">Multiplayer Systems<div class="bar"><i style="width:85%"></i></div></div>
+      <div class="skill">Firebase<div class="bar"><i style="width:80%"></i></div></div>
+      <div class="skill">UI & Optimization<div class="bar"><i style="width:85%"></i></div></div>
+    </aside>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p class="muted">
+    Interested in hiring a Unity Developer in Malta?
+    I’m happy to discuss full-time, contract, or project-based work.
+  </p>
+
+  <div class="socials">
+    <a class="social" href="mailto:namruthagude@gmail.com">Email</a>
+    <a class="social" href="https://www.linkedin.com/in/namrutha-gude/" target="_blank">LinkedIn</a>
+    <a class="social" href="https://github.com/namruthagude" target="_blank">GitHub</a>
+    <a class="social" href="https://namrutha.itch.io/" target="_blank">itch.io</a>
+  </div>
+</section>
+
+<footer>
+  <div class="muted">© 2026 Namrutha Gude</div>
+</footer>
+
+</div>
 </body>
 </html>
