@@ -1,297 +1,424 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Namrutha Gude — Unity Developer</title>
-  <meta name="description" content="Namrutha Gude — Unity Developer based in Malta. Mobile & multiplayer games using Unity, C#, Photon and Firebase." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namrutha Gude | Unity Multiplayer & Gameplay Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
 
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#9aa4b2;
-      --accent:#7c3aed;
-      --glass: rgba(255,255,255,0.04);
-      --max-w:1100px;
-      color-scheme: dark;
-    }
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      background:linear-gradient(180deg,var(--bg),#061124 120%);
-      font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
-      color:#fff;
-    }
-    .wrap{max-width:var(--max-w);margin:36px auto;padding:28px}
-    header{display:flex;justify-content:space-between;align-items:center;gap:16px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{
-      width:52px;height:52px;border-radius:12px;
-      background:linear-gradient(135deg,var(--accent),#4f46e5);
-      display:grid;place-items:center;font-weight:800;
-    }
-    nav{display:flex;gap:10px}
-    nav a{
-      color:var(--muted);
-      text-decoration:none;
-      padding:8px 12px;
-      border-radius:8px;
-      font-weight:600;
-    }
-    nav a:hover{background:var(--glass);color:#fff}
-    .btn{
-      background:var(--accent);
-      color:white;
-      padding:10px 14px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:700;
-    }
+body{
+font-family:'Inter',sans-serif;
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
 
-    /* hero */
-    .hero{margin-top:40px}
-    .hero h1{font-size:38px;margin:0 0 12px}
-    .hero p{color:var(--muted);max-width:720px}
-    .cta{margin-top:20px;display:flex;gap:12px}
-    .cards{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
-    .card{
-      background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));
-      padding:14px;
-      border-radius:12px;
-      min-width:150px;
-    }
-    .card h3{margin:0}
-    .card p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:radial-gradient(circle at center,#0f172a,#020617);
+position:relative;
+padding:0 20px;
+}
 
-    /* sections */
-    section{margin-top:60px}
-    h2{margin:0 0 12px}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:22px;
-    }
-    .proj{
-      background:var(--card);
-      padding:18px;
-      border-radius:16px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .proj img{
-      width:100%;
-      height:200px;
-      object-fit:cover;
-      border-radius:10px;
-    }
-    .proj p{color:var(--muted);font-size:14px}
-    ul{padding-left:18px}
-    li{margin:6px 0}
+.hero::before{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:#38bdf8;
+filter:blur(200px);
+opacity:0.15;
+}
 
-    /* about */
-    .about{
-      display:grid;
-      grid-template-columns:1fr 320px;
-      gap:24px;
-    }
-    .skills{
-      background:var(--card);
-      padding:18px;
-      border-radius:14px;
-    }
-    .skill{margin-bottom:12px}
-    .bar{
-      height:8px;border-radius:999px;
-      background:rgba(255,255,255,0.06);
-      overflow:hidden;
-    }
-    .bar i{
-      display:block;height:100%;
-      background:linear-gradient(90deg,var(--accent),#06b6d4);
-    }
+.hero h1{
+font-family:'Orbitron',sans-serif;
+font-size:64px;
+letter-spacing:2px;
+margin-bottom:10px;
+}
 
-    /* contact */
-    footer{margin-top:60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-    .socials{display:flex;gap:10px}
-    .social{
-      padding:8px 12px;
-      border-radius:8px;
-      background:var(--glass);
-      text-decoration:none;
-      color:var(--muted);
-    }
+.hero h2{
+color:#38bdf8;
+font-weight:400;
+margin-bottom:20px;
+}
 
-    @media(max-width:900px){
-      .about{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start}
-    }
-  </style>
+.hero p{
+max-width:750px;
+line-height:1.7;
+color:#cbd5f5;
+}
+
+.scroll{
+position:absolute;
+bottom:30px;
+font-size:14px;
+color:#94a3b8;
+}
+
+section{
+padding:120px 10%;
+max-width:1300px;
+margin:auto;
+}
+
+section h2{
+font-size:36px;
+margin-bottom:40px;
+font-family:'Orbitron',sans-serif;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+}
+
+.project-card{
+background:#0f172a;
+border-radius:16px;
+padding:30px;
+transition:0.35s;
+}
+
+.project-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+.project-card h3{
+margin-bottom:10px;
+}
+
+.project-card p{
+color:#cbd5f5;
+font-size:15px;
+margin-bottom:15px;
+}
+
+.project-card ul{
+padding-left:18px;
+line-height:1.6;
+font-size:14px;
+color:#94a3b8;
+}
+
+.play-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 18px;
+border-radius:30px;
+background:#38bdf8;
+color:black;
+font-weight:600;
+text-decoration:none;
+font-size:14px;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.skill{
+padding:10px 18px;
+background:#0f172a;
+border:1px solid #1e293b;
+border-radius:30px;
+font-size:14px;
+color:#cbd5f5;
+}
+
+.systems{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+}
+
+.system{
+background:#0f172a;
+padding:30px;
+border-radius:14px;
+text-align:center;
+font-weight:500;
+transition:0.25s;
+}
+
+.system:hover{
+background:#1e293b;
+transform:translateY(-5px);
+}
+
+.experience{
+display:grid;
+gap:35px;
+}
+
+.job{
+background:#0f172a;
+padding:30px;
+border-radius:14px;
+}
+
+.job span{
+color:#38bdf8;
+font-size:14px;
+}
+
+.job ul{
+margin-top:10px;
+padding-left:18px;
+line-height:1.6;
+color:#94a3b8;
+}
+
+.current{
+text-align:center;
+font-size:18px;
+color:#cbd5f5;
+}
+
+.current span{
+color:#38bdf8;
+font-weight:600;
+}
+
+.footer{
+padding:60px;
+text-align:center;
+color:#64748b;
+}
+
+</style>
 </head>
 
 <body>
-<div class="wrap">
 
-<header>
-  <div class="brand">
-    <div class="logo">NG</div>
-    <div>
-      <strong>Namrutha Gude</strong>
-      <div class="muted" style="font-size:13px">
-        Unity Developer · Mobile & Multiplayer
-      </div>
-    </div>
-  </div>
-
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a class="btn" href="assets/Namrutha_Gude_Resume.pdf" target="_blank">Resume</a>
-  </nav>
-</header>
-
-<!-- HERO -->
 <section class="hero">
-  <h1>Unity Developer specializing in Mobile & Multiplayer Games</h1>
+<h1>Namrutha Gude</h1>
+<h2>Unity Multiplayer & Gameplay Developer</h2>
 
-  <p>
-    3.5+ years of professional experience building and shipping
-    <strong>2D & 3D games</strong> using <strong>Unity and C#</strong>.
-    Strong focus on <strong>Photon multiplayer systems</strong>,
-    <strong>Firebase backends</strong>, and performance optimization.
-    <br><br>
-    <strong>Based in Malta</strong> — available for on-site, hybrid, or remote roles.
-  </p>
+<p>
+Unity developer with 3.5+ years of experience building multiplayer and gameplay systems across mobile, PC, and WebGL platforms using Unity and C#.
+</p>
 
-  <div class="cta">
-    <a class="btn" href="#projects">View Selected Projects</a>
-    <a class="social" href="#contact">Contact Me</a>
-  </div>
+<p>
+Specialized in Photon networking, Firebase services, and scalable gameplay architecture while shipping games on Steam, Android, WebGL and browser platforms.
+</p>
 
-  <div class="cards">
-    <div class="card"><h3>3.5+ yrs</h3><p>Unity experience</p></div>
-    <div class="card"><h3>Multiplayer</h3><p>Photon Fusion & PUN</p></div>
-    <div class="card"><h3>Shipped</h3><p>Mobile · WebGL · Steam</p></div>
-  </div>
+<div class="scroll">Scroll to explore ↓</div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <h2>Selected Projects</h2>
-  <p class="muted">Projects that best represent my professional Unity experience.</p>
+<section>
+<h2>Professional Experience</h2>
 
-  <div class="grid">
+<div class="experience">
 
-    <!-- Soccer Fan -->
-    <article class="proj">
-      <img src="assets/soccer-fan.png.webp" alt="Soccer Fan">
-      <h4>Soccer Fan — Multiplayer Football Game</h4>
-      <p>
-        Published multiplayer football game. Led core gameplay systems,
-        real-time networking using Photon, and Firebase integration.
-        Optimized for Android and WebGL.
-      </p>
-      <strong>My contributions:</strong>
-      <ul>
-        <li>Real-time multiplayer gameplay & synchronization</li>
-        <li>Client-side prediction and matchmaking</li>
-        <li>Firebase authentication and analytics</li>
-      </ul>
-      <a class="btn" href="https://store.steampowered.com/app/3996790/Soccer_Fan__Online_Multiplayer_Football/" target="_blank">Play on Steam</a>
-    </article>
+<div class="job">
+<h3>Unity Developer (Freelance)</h3>
+<span>2025 – Present</span>
+<ul>
+<li>Converted a single-player PC game into a real-time multiplayer experience using Photon PUN.</li>
+<li>Developed and released a Coloring Book Game MVP for Yandex Games.</li>
+<li>Implemented multiplayer matchmaking and room management systems.</li>
+<li>Integrated analytics, monetization and social SDKs.</li>
+<li>Mentored junior developers in Unity architecture and debugging workflows.</li>
+</ul>
+</div>
 
-    <!-- Laser Tanks -->
-    <article class="proj">
-      <img src="assets/LaserTank.jpg" alt="Laser Tanks">
-      <h4>Laser Tanks — Multiplayer Battle Game (Freelance)</h4>
-      <p>
-        Freelance project completed in one week.
-        Converted a full single-player PC game into
-        a real-time multiplayer experience.
-      </p>
-      <strong>My contributions:</strong>
-      <ul>
-        <li>Converted architecture to multiplayer</li>
-        <li>Implemented lobbies, matchmaking, and sync</li>
-        <li>Optimized network performance and latency</li>
-      </ul>
-      <a class="btn" href="https://steamcommunity.com/app/2309830" target="_blank">View on Steam</a>
-    </article>
+<div class="job">
+<h3>Unity Developer – Unikh Games</h3>
+<span>2023 – 2025</span>
+<ul>
+<li>Led development of a multiplayer football game targeting Steam, Android and WebGL.</li>
+<li>Implemented real-time multiplayer systems using Photon PUN.</li>
+<li>Integrated MySQL database for player data and authentication.</li>
+<li>Developed features including achievements, leaderboards and in-app purchases.</li>
+<li>Collaborated closely with designers and artists to improve gameplay systems and UI.</li>
+</ul>
+</div>
 
-  </div>
-
-  <h3 style="margin-top:40px">Other Projects</h3>
-  <p class="muted">Game jams, prototypes, and smaller shipped titles.</p>
-
-  <ul class="muted">
-    <li><strong>BINGO</strong> — Multiplayer & AI numbers game (<a href="https://namrutha.itch.io/bingo">itch.io</a>)</li>
-    <li><strong>Coloring Book</strong> — Web & mobile casual game (<a href="https://yandex.ru/games/app/472780?draft=true&lang=ru">Yandex Games</a>)</li>
-    <li><strong>Burnt Fortune</strong> — <a href="https://namrutha.itch.io/burnt-fortune">Brackeys Game Jam (72 hrs)</a></li>
-    <li><strong>Glitch of the Dead</strong> — <a href="https://namrutha.itch.io/glitch-of-the-dead">Patch Notes Jam (72 hrs)</a></li>
-  </ul>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
-
-  <div class="about">
-    <div>
-      <p class="muted">
-        Unity Developer with 3.5 years of professional experience creating
-        and optimizing 2D & 3D games for mobile and PC.
-        Strong background in multiplayer systems, Firebase integration,
-        and performance-focused development.
-        <br><br>
-        I also provide one-to-one Unity mentoring, helping students
-        build and release complete games.
-      </p>
-
-      <h3>Education</h3>
-      <p class="muted">
-        B.Tech in Computer Science & Engineering — Bapatla Engineering College
-        (2019–2023). Kakathiya Merit Scholar.
-      </p>
-    </div>
-
-    <aside class="skills">
-      <h3>Core Skills</h3>
-
-      <div class="skill">Unity<div class="bar"><i style="width:95%"></i></div></div>
-      <div class="skill">C#<div class="bar"><i style="width:90%"></i></div></div>
-      <div class="skill">Multiplayer Systems<div class="bar"><i style="width:85%"></i></div></div>
-      <div class="skill">Firebase<div class="bar"><i style="width:80%"></i></div></div>
-      <div class="skill">UI & Optimization<div class="bar"><i style="width:85%"></i></div></div>
-    </aside>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p class="muted">
-    Interested in hiring a Unity Developer ?
-    I’m happy to discuss full-time, contract, or project-based work.
-  </p>
-
-  <div class="socials">
-    <a class="social" href="mailto:namruthagude@yahoo.com">Email</a>
-    <a class="social" href="https://www.linkedin.com/in/namrutha-gude/" target="_blank">LinkedIn</a>
-    <a class="social" href="https://github.com/namruthagude" target="_blank">GitHub</a>
-    <a class="social" href="https://namrutha.itch.io/" target="_blank">itch.io</a>
-  </div>
-</section>
-
-<footer>
-  <div class="muted">© 2026 Namrutha Gude</div>
-</footer>
+<div class="job">
+<h3>Unity Developer Intern – Digamend Technologies</h3>
+<span>2022 – 2023</span>
+<ul>
+<li>Implemented scalable systems using ScriptableObjects and AssetBundles.</li>
+<li>Developed realtime features using Firebase database and storage.</li>
+<li>Improved gameplay feedback loops using MMFeedbacks.</li>
+<li>Assisted debugging and testing for project releases.</li>
+</ul>
+</div>
 
 </div>
+</section>
+
+<section>
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project-card">
+<h3>Soccer Fan</h3>
+<p>Online multiplayer football game released on Steam featuring competitive real-time matches and cross‑platform gameplay.</p>
+<ul>
+<li>Real-time multiplayer using Photon networking</li>
+<li>Player synchronization and match gameplay systems</li>
+<li>Achievements and leaderboard integration</li>
+<li>Released on Steam</li>
+</ul>
+<a class="play-btn" href="https://store.steampowered.com/app/3996790/Soccer_Fan__Online_Multiplayer_Football/" target="_blank">Play Game</a>
+</div>
+
+<div class="project-card">
+<h3>Laser Tanks</h3>
+<p>Arcade style tank combat game released on Steam. My contribution focused on implementing and optimizing the multiplayer systems.</p>
+<ul>
+<li>Implemented real-time multiplayer features</li>
+<li>Developed lobby and matchmaking systems</li>
+<li>Synchronized player actions and combat over network</li>
+<li>Optimized network performance for smoother gameplay</li>
+</ul>
+<a class="play-btn" href="https://steamcommunity.com/app/2309830" target="_blank">Play Game</a>
+</div>
+
+<div class="project-card">
+<h3>BINGO</h3>
+<p>2D multiplayer Bingo game playable in the browser with AI and online gameplay modes.</p>
+<ul>
+<li>Turn-based gameplay system</li>
+<li>Dynamic board generation</li>
+<li>Win detection logic</li>
+<li>WebGL browser deployment</li>
+</ul>
+<a class="play-btn" href="https://namrutha.itch.io/bingo" target="_blank">Play Game</a>
+</div>
+
+<div class="project-card">
+<h3>Mask Dash</h3>
+<p>Game jam project featuring competitive gameplay against AI opponents with powerup mechanics.</p>
+<ul>
+<li>AI behavior system</li>
+<li>Round-based gameplay loop</li>
+<li>Dynamic powerup mechanics</li>
+<li>Currently expanding with multiplayer</li>
+</ul>
+<a class="play-btn" href="https://namrutha.itch.io/mask-dash" target="_blank">Play Game</a>
+</div>
+
+<div class="project-card">
+<h3>Glitch of the Dead</h3>
+<p>Glitch themed survival runner developed during a game jam with reactive visual effects.</p>
+<ul>
+<li>Enemy spawning system</li>
+<li>Player survival gameplay</li>
+<li>Dynamic glitch visual effects</li>
+<li>Published on itch.io</li>
+</ul>
+<a class="play-btn" href="https://namrutha.itch.io/glitch-of-the-dead" target="_blank">Play Game</a>
+</div>
+
+<div class="project-card">
+<h3>Burnt Fortune</h3>
+<p>Arcade risk‑reward game created during the Brackeys Game Jam.</p>
+<ul>
+<li>Cookie collection gameplay</li>
+<li>Risk vs reward scoring system</li>
+<li>Fast paced arcade loop</li>
+<li>Built using Unity</li>
+</ul>
+<a class="play-btn" href="https://namrutha.itch.io/burnt-fortune" target="_blank">Play Game</a>
+</div>
+
+<div class="project-card">
+<h3>Dinoo</h3>
+<p>Endless runner inspired by the classic offline dinosaur browser game.</p>
+<ul>
+<li>Obstacle avoidance gameplay</li>
+<li>Score progression system</li>
+<li>WebGL browser deployment</li>
+<li>Built using Unity</li>
+</ul>
+<a class="play-btn" href="https://namrutha.itch.io/dinoo" target="_blank">Play Game</a>
+</div>
+
+<div class="project-card">
+<h3>Rabbit</h3>
+<p>Simple 2D browser game built with Unity focusing on collectible gameplay mechanics.</p>
+<ul>
+<li>Player movement mechanics</li>
+<li>Collectible gameplay</li>
+<li>Browser playable</li>
+<li>Unity WebGL build</li>
+</ul>
+<a class="play-btn" href="https://namrutha.itch.io/rabbit" target="_blank">Play Game</a>
+</div>
+
+</div>
+
+</section>
+
+<section>
+<h2>Game Systems Built</h2>
+
+<div class="systems">
+<div class="system">Photon Multiplayer Networking</div>
+<div class="system">Matchmaking & Lobby System</div>
+<div class="system">Enemy AI Systems</div>
+<div class="system">Turn Based Gameplay</div>
+<div class="system">Object Pooling</div>
+<div class="system">Wave Spawning</div>
+<div class="system">Health & Damage System</div>
+<div class="system">Event Driven Architecture</div>
+</div>
+
+</section>
+
+<section>
+<h2>Tech Stack</h2>
+
+<div class="skills">
+
+<div class="skill">Unity</div>
+<div class="skill">C#</div>
+<div class="skill">Photon PUN</div>
+<div class="skill">Photon Fusion</div>
+<div class="skill">Firebase</div>
+<div class="skill">SQL</div>
+<div class="skill">Addressables</div>
+<div class="skill">AssetBundles</div>
+<div class="skill">Object Pooling</div>
+<div class="skill">Multiplayer Systems</div>
+<div class="skill">Gameplay Programming</div>
+
+</div>
+
+</section>
+
+<section>
+<h2>Currently Building</h2>
+
+<p class="current">
+Currently developing an <span>idle / tycoon style game inspired by Adventure Capitalist</span> focused on scalable upgrade systems and long term progression mechanics.
+</p>
+
+</section>
+
+<div class="footer">
+GitHub: github.com/namruthagude
+<br>
+Itch.io: namrutha.itch.io
+<br><br>
+© 2026 Namrutha Gude
+</div>
+
 </body>
 </html>
